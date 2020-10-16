@@ -1,0 +1,1857 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Monitor</class>
+ <widget class="QWidget" name="Monitor">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>802</width>
+    <height>942</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Регистры ВСК</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="tgca.qrc">
+    <normaloff>:/pictogram/streamtuner_3252.png</normaloff>:/pictogram/streamtuner_3252.png</iconset>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="tabNSK">
+      <property name="font">
+       <font>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <attribute name="title">
+       <string>Устройство 1</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <widget class="CTableEditCol" name="tableWidgetVSK1">
+         <property name="editTriggers">
+          <set>QAbstractItemView::DoubleClicked</set>
+         </property>
+         <property name="wordWrap">
+          <bool>false</bool>
+         </property>
+         <property name="cornerButtonEnabled">
+          <bool>false</bool>
+         </property>
+         <attribute name="horizontalHeaderStretchLastSection">
+          <bool>true</bool>
+         </attribute>
+         <attribute name="verticalHeaderVisible">
+          <bool>false</bool>
+         </attribute>
+         <attribute name="verticalHeaderDefaultSectionSize">
+          <number>20</number>
+         </attribute>
+         <row>
+          <property name="text">
+           <string>80</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>84</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>88</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>8С</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>90</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>94</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>98</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>9C</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>A0</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>A4</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>A8</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>AC</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>B0</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>B4</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>B8</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>BC</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>C0</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>C4</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>C8</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>CC</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>D0</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>D4</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>D8</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>DC</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>E0</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>E4</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>E8</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>EC</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>F0</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>F4</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>F8</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>FC</string>
+          </property>
+         </row>
+         <column>
+          <property name="text">
+           <string>Адрес</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Обозначение</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Наименование</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Записать значение</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Прежнее значение</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Новое значение</string>
+          </property>
+         </column>
+         <item row="0" column="0">
+          <property name="text">
+           <string>80h</string>
+          </property>
+         </item>
+         <item row="0" column="1">
+          <property name="text">
+           <string>ram_tx_rx</string>
+          </property>
+         </item>
+         <item row="0" column="2">
+          <property name="text">
+           <string>регистр доступа к внутренней памяти</string>
+          </property>
+         </item>
+         <item row="0" column="3">
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item row="1" column="0">
+          <property name="text">
+           <string>84h</string>
+          </property>
+         </item>
+         <item row="1" column="1">
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item row="1" column="2">
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item row="1" column="3">
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item row="2" column="0">
+          <property name="text">
+           <string>88h</string>
+          </property>
+         </item>
+         <item row="2" column="1">
+          <property name="text">
+           <string>id</string>
+          </property>
+         </item>
+         <item row="2" column="2">
+          <property name="text">
+           <string>версия прошивки</string>
+          </property>
+         </item>
+         <item row="3" column="0">
+          <property name="text">
+           <string>8Ch</string>
+          </property>
+         </item>
+         <item row="3" column="1">
+          <property name="text">
+           <string>status</string>
+          </property>
+         </item>
+         <item row="3" column="2">
+          <property name="text">
+           <string>регистр состояния</string>
+          </property>
+         </item>
+         <item row="4" column="0">
+          <property name="text">
+           <string>90h</string>
+          </property>
+         </item>
+         <item row="4" column="1">
+          <property name="text">
+           <string>cfg</string>
+          </property>
+         </item>
+         <item row="4" column="2">
+          <property name="text">
+           <string>регистр конфигурационный</string>
+          </property>
+         </item>
+         <item row="5" column="0">
+          <property name="text">
+           <string>94h</string>
+          </property>
+         </item>
+         <item row="5" column="1">
+          <property name="text">
+           <string>tx_cntr</string>
+          </property>
+         </item>
+         <item row="5" column="2">
+          <property name="text">
+           <string>регистр параметров передачи</string>
+          </property>
+         </item>
+         <item row="6" column="0">
+          <property name="text">
+           <string>98h</string>
+          </property>
+         </item>
+         <item row="6" column="1">
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item row="6" column="2">
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item row="7" column="0">
+          <property name="text">
+           <string>9Ch</string>
+          </property>
+         </item>
+         <item row="7" column="1">
+          <property name="text">
+           <string>rx_cntr</string>
+          </property>
+         </item>
+         <item row="7" column="2">
+          <property name="text">
+           <string>регистр параметров приёма</string>
+          </property>
+         </item>
+         <item row="8" column="0">
+          <property name="text">
+           <string>A0h</string>
+          </property>
+         </item>
+         <item row="8" column="1">
+          <property name="text">
+           <string>creg</string>
+          </property>
+         </item>
+         <item row="8" column="2">
+          <property name="text">
+           <string>регистр команд</string>
+          </property>
+         </item>
+         <item row="9" column="0">
+          <property name="text">
+           <string>A4h</string>
+          </property>
+         </item>
+         <item row="9" column="1">
+          <property name="text">
+           <string>cr_spi</string>
+          </property>
+         </item>
+         <item row="9" column="2">
+          <property name="text">
+           <string>регистр управления обменом по SPI</string>
+          </property>
+         </item>
+         <item row="10" column="0">
+          <property name="text">
+           <string>A8h</string>
+          </property>
+         </item>
+         <item row="10" column="1">
+          <property name="text">
+           <string>dr_spi_msw</string>
+          </property>
+         </item>
+         <item row="10" column="2">
+          <property name="text">
+           <string>регистр данных SPI СЗС</string>
+          </property>
+         </item>
+         <item row="11" column="0">
+          <property name="text">
+           <string>ACh</string>
+          </property>
+         </item>
+         <item row="11" column="1">
+          <property name="text">
+           <string>dr_spi_lsw</string>
+          </property>
+         </item>
+         <item row="11" column="2">
+          <property name="text">
+           <string>регистр данных SPI МЗС</string>
+          </property>
+         </item>
+         <item row="12" column="0">
+          <property name="text">
+           <string>B0h</string>
+          </property>
+         </item>
+         <item row="12" column="1">
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item row="12" column="2">
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item row="13" column="0">
+          <property name="text">
+           <string>B4h</string>
+          </property>
+         </item>
+         <item row="13" column="1">
+          <property name="text">
+           <string>time_rsp</string>
+          </property>
+         </item>
+         <item row="13" column="2">
+          <property name="text">
+           <string>регистр времени ожидания ОС</string>
+          </property>
+         </item>
+         <item row="14" column="0">
+          <property name="text">
+           <string>B8h</string>
+          </property>
+         </item>
+         <item row="14" column="1">
+          <property name="text">
+           <string>cnt_pct_tx_msw</string>
+          </property>
+         </item>
+         <item row="14" column="2">
+          <property name="text">
+           <string>счётчик переданных пакетов СЗС</string>
+          </property>
+         </item>
+         <item row="15" column="0">
+          <property name="text">
+           <string>BCh</string>
+          </property>
+         </item>
+         <item row="15" column="1">
+          <property name="text">
+           <string>cnt_pct_tx_lsw</string>
+          </property>
+         </item>
+         <item row="15" column="2">
+          <property name="text">
+           <string>счётчик переданных пакетов МЗС</string>
+          </property>
+         </item>
+         <item row="16" column="0">
+          <property name="text">
+           <string>C0h</string>
+          </property>
+         </item>
+         <item row="16" column="1">
+          <property name="text">
+           <string>cnt_pct_rx_msw</string>
+          </property>
+         </item>
+         <item row="16" column="2">
+          <property name="text">
+           <string>счётчик принятых пакетов СЗС</string>
+          </property>
+         </item>
+         <item row="17" column="0">
+          <property name="text">
+           <string>C4h</string>
+          </property>
+         </item>
+         <item row="17" column="1">
+          <property name="text">
+           <string>ctn_pct_rx_lsw</string>
+          </property>
+         </item>
+         <item row="17" column="2">
+          <property name="text">
+           <string>счётчик принятых пакетов МЗС</string>
+          </property>
+         </item>
+         <item row="17" column="3">
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item row="18" column="0">
+          <property name="text">
+           <string>C8h</string>
+          </property>
+         </item>
+         <item row="18" column="1">
+          <property name="text">
+           <string>lvl_sync_kf_rx_msw</string>
+          </property>
+         </item>
+         <item row="18" column="2">
+          <property name="text">
+           <string>регистр уровня корреляционной функции, СЗС</string>
+          </property>
+         </item>
+         <item row="18" column="3">
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item row="19" column="0">
+          <property name="text">
+           <string>CCh</string>
+          </property>
+         </item>
+         <item row="19" column="1">
+          <property name="text">
+           <string>lvl_sync_kf_rx_lsw</string>
+          </property>
+         </item>
+         <item row="19" column="2">
+          <property name="text">
+           <string>регистр уровня корреляционной функции, МЗС</string>
+          </property>
+         </item>
+         <item row="20" column="0">
+          <property name="text">
+           <string>D0h</string>
+          </property>
+         </item>
+         <item row="20" column="1">
+          <property name="text">
+           <string>lvl_sync_pre_rx_msw</string>
+          </property>
+         </item>
+         <item row="20" column="2">
+          <property name="text">
+           <string>зегистр уровня предварительной синхронизации, СЗС</string>
+          </property>
+         </item>
+         <item row="21" column="0">
+          <property name="text">
+           <string>D4h</string>
+          </property>
+         </item>
+         <item row="21" column="1">
+          <property name="text">
+           <string>lvl_sync_ pre_rx_lsw</string>
+          </property>
+         </item>
+         <item row="21" column="2">
+          <property name="text">
+           <string>зегистр уровня предварительной синхронизации, МЗС</string>
+          </property>
+         </item>
+         <item row="22" column="0">
+          <property name="text">
+           <string>D8h</string>
+          </property>
+         </item>
+         <item row="22" column="1">
+          <property name="text">
+           <string>lvl_qam16</string>
+          </property>
+         </item>
+         <item row="22" column="2">
+          <property name="text">
+           <string>уровень деманипуляции QAM16</string>
+          </property>
+         </item>
+         <item row="23" column="0">
+          <property name="text">
+           <string>DCh</string>
+          </property>
+         </item>
+         <item row="23" column="1">
+          <property name="text">
+           <string>lvl_qam64_low</string>
+          </property>
+         </item>
+         <item row="23" column="2">
+          <property name="text">
+           <string>уровень деманипуляции QAM64 low</string>
+          </property>
+         </item>
+         <item row="24" column="0">
+          <property name="text">
+           <string>E0h</string>
+          </property>
+         </item>
+         <item row="24" column="1">
+          <property name="text">
+           <string>lvl_qam64_middle</string>
+          </property>
+         </item>
+         <item row="24" column="2">
+          <property name="text">
+           <string>уровень деманипуляции QAM64 middle</string>
+          </property>
+         </item>
+         <item row="25" column="0">
+          <property name="text">
+           <string>E4h</string>
+          </property>
+         </item>
+         <item row="25" column="1">
+          <property name="text">
+           <string>lvl_qam64_high</string>
+          </property>
+         </item>
+         <item row="25" column="2">
+          <property name="text">
+           <string>уровень деманипуляции QAM64 high</string>
+          </property>
+         </item>
+         <item row="26" column="0">
+          <property name="text">
+           <string>E8h</string>
+          </property>
+         </item>
+         <item row="26" column="1">
+          <property name="text">
+           <string>amplification_factor</string>
+          </property>
+         </item>
+         <item row="26" column="2">
+          <property name="text">
+           <string>регистр коэффициента усиления приёмника</string>
+          </property>
+         </item>
+         <item row="27" column="0">
+          <property name="text">
+           <string>ECh</string>
+          </property>
+         </item>
+         <item row="27" column="1">
+          <property name="text">
+           <string>amplitude_signal</string>
+          </property>
+         </item>
+         <item row="27" column="2">
+          <property name="text">
+           <string>амплитуда сигнала на входе АЦП</string>
+          </property>
+         </item>
+         <item row="28" column="0">
+          <property name="text">
+           <string>F0h</string>
+          </property>
+         </item>
+         <item row="28" column="1">
+          <property name="text">
+           <string>g_sp</string>
+          </property>
+         </item>
+         <item row="28" column="2">
+          <property name="text">
+           <string>регистр коррекции спектра</string>
+          </property>
+         </item>
+         <item row="29" column="0">
+          <property name="text">
+           <string>F4h</string>
+          </property>
+         </item>
+         <item row="29" column="1">
+          <property name="text">
+           <string>g_l_sp_high</string>
+          </property>
+         </item>
+         <item row="29" column="2">
+          <property name="text">
+           <string>регистр коррекции спектра обратный high</string>
+          </property>
+         </item>
+         <item row="30" column="0">
+          <property name="text">
+           <string>F8h</string>
+          </property>
+         </item>
+         <item row="30" column="1">
+          <property name="text">
+           <string>g_l_sp_low</string>
+          </property>
+         </item>
+         <item row="30" column="2">
+          <property name="text">
+           <string>регистр коррекции спектра обратный low</string>
+          </property>
+         </item>
+         <item row="31" column="0">
+          <property name="text">
+           <string>FCh</string>
+          </property>
+         </item>
+         <item row="31" column="1">
+          <property name="text">
+           <string>pll_reg</string>
+          </property>
+         </item>
+         <item row="31" column="2">
+          <property name="text">
+           <string>регистр PLL</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tabVSK">
+      <property name="font">
+       <font>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <attribute name="title">
+       <string>Устройство 2</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <widget class="CTableEditCol" name="tableWidgetVSK2">
+         <property name="editTriggers">
+          <set>QAbstractItemView::DoubleClicked</set>
+         </property>
+         <property name="wordWrap">
+          <bool>false</bool>
+         </property>
+         <property name="cornerButtonEnabled">
+          <bool>false</bool>
+         </property>
+         <attribute name="horizontalHeaderStretchLastSection">
+          <bool>true</bool>
+         </attribute>
+         <attribute name="verticalHeaderVisible">
+          <bool>false</bool>
+         </attribute>
+         <attribute name="verticalHeaderDefaultSectionSize">
+          <number>20</number>
+         </attribute>
+         <row>
+          <property name="text">
+           <string>80</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>84</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>88</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>8С</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>90</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>94</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>98</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>9C</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>A0</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>A4</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>A8</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>AC</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>B0</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>B4</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>B8</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>BC</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>C0</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>C4</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>C8</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>CC</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>D0</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>D4</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>D8</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>DC</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>E0</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>E4</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>E8</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>EC</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>F0</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>F4</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>F8</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>FC</string>
+          </property>
+         </row>
+         <column>
+          <property name="text">
+           <string>Адрес</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Обозначение</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Наименование</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Записать значение</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Прежнее значение</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Новое значение</string>
+          </property>
+         </column>
+         <item row="0" column="0">
+          <property name="text">
+           <string>80h</string>
+          </property>
+         </item>
+         <item row="0" column="1">
+          <property name="text">
+           <string>ram_tx_rx</string>
+          </property>
+         </item>
+         <item row="0" column="2">
+          <property name="text">
+           <string>регистр доступа к внутренней памяти</string>
+          </property>
+         </item>
+         <item row="0" column="3">
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item row="1" column="0">
+          <property name="text">
+           <string>84h</string>
+          </property>
+         </item>
+         <item row="1" column="1">
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item row="1" column="2">
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item row="1" column="3">
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item row="2" column="0">
+          <property name="text">
+           <string>88h</string>
+          </property>
+         </item>
+         <item row="2" column="1">
+          <property name="text">
+           <string>id</string>
+          </property>
+         </item>
+         <item row="2" column="2">
+          <property name="text">
+           <string>версия прошивки</string>
+          </property>
+         </item>
+         <item row="3" column="0">
+          <property name="text">
+           <string>8Ch</string>
+          </property>
+         </item>
+         <item row="3" column="1">
+          <property name="text">
+           <string>status</string>
+          </property>
+         </item>
+         <item row="3" column="2">
+          <property name="text">
+           <string>регистр состояния</string>
+          </property>
+         </item>
+         <item row="4" column="0">
+          <property name="text">
+           <string>90h</string>
+          </property>
+         </item>
+         <item row="4" column="1">
+          <property name="text">
+           <string>cfg</string>
+          </property>
+         </item>
+         <item row="4" column="2">
+          <property name="text">
+           <string>регистр конфигурационный</string>
+          </property>
+         </item>
+         <item row="5" column="0">
+          <property name="text">
+           <string>94h</string>
+          </property>
+         </item>
+         <item row="5" column="1">
+          <property name="text">
+           <string>tx_cntr</string>
+          </property>
+         </item>
+         <item row="5" column="2">
+          <property name="text">
+           <string>регистр параметров передачи</string>
+          </property>
+         </item>
+         <item row="6" column="0">
+          <property name="text">
+           <string>98h</string>
+          </property>
+         </item>
+         <item row="6" column="1">
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item row="6" column="2">
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item row="7" column="0">
+          <property name="text">
+           <string>9Ch</string>
+          </property>
+         </item>
+         <item row="7" column="1">
+          <property name="text">
+           <string>rx_cntr</string>
+          </property>
+         </item>
+         <item row="7" column="2">
+          <property name="text">
+           <string>регистр параметров приёма</string>
+          </property>
+         </item>
+         <item row="8" column="0">
+          <property name="text">
+           <string>A0h</string>
+          </property>
+         </item>
+         <item row="8" column="1">
+          <property name="text">
+           <string>creg</string>
+          </property>
+         </item>
+         <item row="8" column="2">
+          <property name="text">
+           <string>регистр команд</string>
+          </property>
+         </item>
+         <item row="9" column="0">
+          <property name="text">
+           <string>A4h</string>
+          </property>
+         </item>
+         <item row="9" column="1">
+          <property name="text">
+           <string>cr_spi</string>
+          </property>
+         </item>
+         <item row="9" column="2">
+          <property name="text">
+           <string>регистр управления обменом по SPI</string>
+          </property>
+         </item>
+         <item row="10" column="0">
+          <property name="text">
+           <string>A8h</string>
+          </property>
+         </item>
+         <item row="10" column="1">
+          <property name="text">
+           <string>dr_spi_msw</string>
+          </property>
+         </item>
+         <item row="10" column="2">
+          <property name="text">
+           <string>регистр данных SPI СЗС</string>
+          </property>
+         </item>
+         <item row="11" column="0">
+          <property name="text">
+           <string>ACh</string>
+          </property>
+         </item>
+         <item row="11" column="1">
+          <property name="text">
+           <string>dr_spi_lsw</string>
+          </property>
+         </item>
+         <item row="11" column="2">
+          <property name="text">
+           <string>регистр данных SPI МЗС</string>
+          </property>
+         </item>
+         <item row="12" column="0">
+          <property name="text">
+           <string>B0h</string>
+          </property>
+         </item>
+         <item row="12" column="1">
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item row="12" column="2">
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item row="13" column="0">
+          <property name="text">
+           <string>B4h</string>
+          </property>
+         </item>
+         <item row="13" column="1">
+          <property name="text">
+           <string>time_rsp</string>
+          </property>
+         </item>
+         <item row="13" column="2">
+          <property name="text">
+           <string>регистр времени ожидания ОС</string>
+          </property>
+         </item>
+         <item row="14" column="0">
+          <property name="text">
+           <string>B8h</string>
+          </property>
+         </item>
+         <item row="14" column="1">
+          <property name="text">
+           <string>cnt_pct_tx_msw</string>
+          </property>
+         </item>
+         <item row="14" column="2">
+          <property name="text">
+           <string>счётчик переданных пакетов СЗС</string>
+          </property>
+         </item>
+         <item row="15" column="0">
+          <property name="text">
+           <string>BCh</string>
+          </property>
+         </item>
+         <item row="15" column="1">
+          <property name="text">
+           <string>cnt_pct_tx_lsw</string>
+          </property>
+         </item>
+         <item row="15" column="2">
+          <property name="text">
+           <string>счётчик переданных пакетов МЗС</string>
+          </property>
+         </item>
+         <item row="16" column="0">
+          <property name="text">
+           <string>C0h</string>
+          </property>
+         </item>
+         <item row="16" column="1">
+          <property name="text">
+           <string>cnt_pct_rx_msw</string>
+          </property>
+         </item>
+         <item row="16" column="2">
+          <property name="text">
+           <string>счётчик принятых пакетов СЗС</string>
+          </property>
+         </item>
+         <item row="17" column="0">
+          <property name="text">
+           <string>C4h</string>
+          </property>
+         </item>
+         <item row="17" column="1">
+          <property name="text">
+           <string>ctn_pct_rx_lsw</string>
+          </property>
+         </item>
+         <item row="17" column="2">
+          <property name="text">
+           <string>счётчик принятых пакетов МЗС</string>
+          </property>
+         </item>
+         <item row="17" column="3">
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item row="18" column="0">
+          <property name="text">
+           <string>C8h</string>
+          </property>
+         </item>
+         <item row="18" column="1">
+          <property name="text">
+           <string>lvl_sync_kf_rx_msw</string>
+          </property>
+         </item>
+         <item row="18" column="2">
+          <property name="text">
+           <string>регистр уровня корреляционной функции, СЗС</string>
+          </property>
+         </item>
+         <item row="18" column="3">
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item row="19" column="0">
+          <property name="text">
+           <string>CCh</string>
+          </property>
+         </item>
+         <item row="19" column="1">
+          <property name="text">
+           <string>lvl_sync_kf_rx_lsw</string>
+          </property>
+         </item>
+         <item row="19" column="2">
+          <property name="text">
+           <string>регистр уровня корреляционной функции, МЗС</string>
+          </property>
+         </item>
+         <item row="20" column="0">
+          <property name="text">
+           <string>D0h</string>
+          </property>
+         </item>
+         <item row="20" column="1">
+          <property name="text">
+           <string>lvl_sync_pre_rx_msw</string>
+          </property>
+         </item>
+         <item row="20" column="2">
+          <property name="text">
+           <string>зегистр уровня предварительной синхронизации, СЗС</string>
+          </property>
+         </item>
+         <item row="21" column="0">
+          <property name="text">
+           <string>D4h</string>
+          </property>
+         </item>
+         <item row="21" column="1">
+          <property name="text">
+           <string>lvl_sync_ pre_rx_lsw</string>
+          </property>
+         </item>
+         <item row="21" column="2">
+          <property name="text">
+           <string>зегистр уровня предварительной синхронизации, МЗС</string>
+          </property>
+         </item>
+         <item row="22" column="0">
+          <property name="text">
+           <string>D8h</string>
+          </property>
+         </item>
+         <item row="22" column="1">
+          <property name="text">
+           <string>lvl_qam16</string>
+          </property>
+         </item>
+         <item row="22" column="2">
+          <property name="text">
+           <string>уровень деманипуляции QAM16</string>
+          </property>
+         </item>
+         <item row="23" column="0">
+          <property name="text">
+           <string>DCh</string>
+          </property>
+         </item>
+         <item row="23" column="1">
+          <property name="text">
+           <string>lvl_qam64_low</string>
+          </property>
+         </item>
+         <item row="23" column="2">
+          <property name="text">
+           <string>уровень деманипуляции QAM64 low</string>
+          </property>
+         </item>
+         <item row="24" column="0">
+          <property name="text">
+           <string>E0h</string>
+          </property>
+         </item>
+         <item row="24" column="1">
+          <property name="text">
+           <string>lvl_qam64_middle</string>
+          </property>
+         </item>
+         <item row="24" column="2">
+          <property name="text">
+           <string>уровень деманипуляции QAM64 middle</string>
+          </property>
+         </item>
+         <item row="25" column="0">
+          <property name="text">
+           <string>E4h</string>
+          </property>
+         </item>
+         <item row="25" column="1">
+          <property name="text">
+           <string>lvl_qam64_high</string>
+          </property>
+         </item>
+         <item row="25" column="2">
+          <property name="text">
+           <string>уровень деманипуляции QAM64 high</string>
+          </property>
+         </item>
+         <item row="26" column="0">
+          <property name="text">
+           <string>E8h</string>
+          </property>
+         </item>
+         <item row="26" column="1">
+          <property name="text">
+           <string>amplification_factor</string>
+          </property>
+         </item>
+         <item row="26" column="2">
+          <property name="text">
+           <string>регистр коэффициента усиления приёмника</string>
+          </property>
+         </item>
+         <item row="27" column="0">
+          <property name="text">
+           <string>ECh</string>
+          </property>
+         </item>
+         <item row="27" column="1">
+          <property name="text">
+           <string>amplitude_signal</string>
+          </property>
+         </item>
+         <item row="27" column="2">
+          <property name="text">
+           <string>амплитуда сигнала на входе АЦП</string>
+          </property>
+         </item>
+         <item row="28" column="0">
+          <property name="text">
+           <string>F0h</string>
+          </property>
+         </item>
+         <item row="28" column="1">
+          <property name="text">
+           <string>g_sp</string>
+          </property>
+         </item>
+         <item row="28" column="2">
+          <property name="text">
+           <string>регистр коррекции спектра</string>
+          </property>
+         </item>
+         <item row="29" column="0">
+          <property name="text">
+           <string>F4h</string>
+          </property>
+         </item>
+         <item row="29" column="1">
+          <property name="text">
+           <string>g_l_sp_high</string>
+          </property>
+         </item>
+         <item row="29" column="2">
+          <property name="text">
+           <string>регистр коррекции спектра обратный high</string>
+          </property>
+         </item>
+         <item row="30" column="0">
+          <property name="text">
+           <string>F8h</string>
+          </property>
+         </item>
+         <item row="30" column="1">
+          <property name="text">
+           <string>g_l_sp_low</string>
+          </property>
+         </item>
+         <item row="30" column="2">
+          <property name="text">
+           <string>регистр коррекции спектра обратный low</string>
+          </property>
+         </item>
+         <item row="31" column="0">
+          <property name="text">
+           <string>FCh</string>
+          </property>
+         </item>
+         <item row="31" column="1">
+          <property name="text">
+           <string>pll_reg</string>
+          </property>
+         </item>
+         <item row="31" column="2">
+          <property name="text">
+           <string>регистр PLL</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <property name="bottomMargin">
+      <number>18</number>
+     </property>
+     <item alignment="Qt::AlignLeft">
+      <widget class="QCheckBox" name="checkBoxSelect1">
+       <property name="text">
+        <string>выбрать/снять все</string>
+       </property>
+       <property name="tristate">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="checkBoxSelect2">
+       <property name="text">
+        <string>выбрать/снять все</string>
+       </property>
+       <property name="tristate">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item alignment="Qt::AlignRight">
+      <widget class="QComboBox" name="comboBox1">
+       <property name="minimumSize">
+        <size>
+         <width>152</width>
+         <height>0</height>
+        </size>
+       </property>
+       <item>
+        <property name="text">
+         <string>все регистры</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>отмеченные регистры</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>основные регистры</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="comboBox2">
+       <property name="minimumSize">
+        <size>
+         <width>152</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>140</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <item>
+        <property name="text">
+         <string>все регистры</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>отмеченные регистры</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>основные регистры</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QLabel" name="labelDevice">
+     <property name="font">
+      <font>
+       <pointsize>9</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Устройство 1.   IP = 195.168.1.34.    Конфигурация не задана.</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string/>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_4">
+      <property name="leftMargin">
+       <number>50</number>
+      </property>
+      <property name="rightMargin">
+       <number>50</number>
+      </property>
+      <property name="horizontalSpacing">
+       <number>50</number>
+      </property>
+      <property name="verticalSpacing">
+       <number>9</number>
+      </property>
+      <item row="1" column="1">
+       <widget class="QPushButton" name="pushButtonRead">
+        <property name="minimumSize">
+         <size>
+          <width>225</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>225</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Прочитать отмеченные регистры</string>
+        </property>
+        <property name="icon">
+         <iconset resource="tgca.qrc">
+          <normaloff>:/pictogram/drive_back_5555.png</normaloff>:/pictogram/drive_back_5555.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0" colspan="2" alignment="Qt::AlignHCenter">
+       <widget class="QPushButton" name="pushButtonExit">
+        <property name="minimumSize">
+         <size>
+          <width>200</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>220</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>  Выход</string>
+        </property>
+        <property name="icon">
+         <iconset resource="tgca.qrc">
+          <normaloff>:/pictogram/application-exit_3908.png</normaloff>:/pictogram/application-exit_3908.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QPushButton" name="pushButtonChoose">
+        <property name="minimumSize">
+         <size>
+          <width>200</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>220</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Выбрать конфигурацию</string>
+        </property>
+        <property name="icon">
+         <iconset resource="tgca.qrc">
+          <normaloff>:/pictogram/folder_explore_2684.png</normaloff>:/pictogram/folder_explore_2684.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QPushButton" name="pushButtonWrite">
+        <property name="minimumSize">
+         <size>
+          <width>225</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>225</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Записать отмеченные регистры</string>
+        </property>
+        <property name="icon">
+         <iconset resource="tgca.qrc">
+          <normaloff>:/pictogram/drive_go_5555.png</normaloff>:/pictogram/drive_go_5555.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QPushButton" name="pushButtonApply">
+        <property name="minimumSize">
+         <size>
+          <width>200</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>220</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Сохранить в настройках</string>
+        </property>
+        <property name="icon">
+         <iconset resource="tgca.qrc">
+          <normaloff>:/pictogram/arrow_rotate_clockwise_7614.png</normaloff>:/pictogram/arrow_rotate_clockwise_7614.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="labelSpacer">
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>1</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>CTableEditCol</class>
+   <extends>QTableWidget</extends>
+   <header>ctableeditcol.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="tgca.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>pushButtonApply</sender>
+   <signal>pressed()</signal>
+   <receiver>Monitor</receiver>
+   <slot>onPushStore()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>191</x>
+     <y>833</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>340</x>
+     <y>458</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonChoose</sender>
+   <signal>pressed()</signal>
+   <receiver>Monitor</receiver>
+   <slot>onPushLoad()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>191</x>
+     <y>794</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>340</x>
+     <y>458</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonRead</sender>
+   <signal>pressed()</signal>
+   <receiver>Monitor</receiver>
+   <slot>onPushRead()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>485</x>
+     <y>833</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>340</x>
+     <y>458</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonWrite</sender>
+   <signal>pressed()</signal>
+   <receiver>Monitor</receiver>
+   <slot>onPushWrite()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>485</x>
+     <y>794</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>340</x>
+     <y>458</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonExit</sender>
+   <signal>clicked()</signal>
+   <receiver>Monitor</receiver>
+   <slot>onPushExit()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>339</x>
+     <y>882</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>340</x>
+     <y>458</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>onPushWrite()</slot>
+  <slot>onPushRead()</slot>
+  <slot>onPushStore()</slot>
+  <slot>onPushExit()</slot>
+  <slot>onPushLoad()</slot>
+  <slot>onChangeTab(int)</slot>
+  <slot>onExpand1(int)</slot>
+  <slot>onExpand2(int)</slot>
+  <slot>onCheckSelect1()</slot>
+  <slot>onCheckSelect2()</slot>
+  <slot>onCellChanged1(int,int)</slot>
+  <slot>onCellChanged2(int,int)</slot>
+ </slots>
+</ui>

@@ -1,0 +1,772 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1294</width>
+    <height>871</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Программа управления тестированием ВСК</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="tgca.qrc">
+    <normaloff>:/pictogram/icon-O-30.png</normaloff>:/pictogram/icon-O-30.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <layout class="QVBoxLayout" name="deviceLayout">
+      <item>
+       <widget class="QLabel" name="labeDevicesTitle">
+        <property name="font">
+         <font>
+          <weight>50</weight>
+          <italic>true</italic>
+          <bold>false</bold>
+          <underline>true</underline>
+         </font>
+        </property>
+        <property name="contextMenuPolicy">
+         <enum>Qt::CustomContextMenu</enum>
+        </property>
+        <property name="text">
+         <string>Устройства</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="devices"/>
+      </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item row="0" column="1">
+     <widget class="QScrollArea" name="scrollArea">
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollLayout">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>1206</width>
+         <height>549</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <layout class="QVBoxLayout" name="tests"/>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>266</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="windowTitle">
+    <string>Панель инструментов</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>20</width>
+     <height>20</height>
+    </size>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextUnderIcon</enum>
+   </property>
+   <property name="floatable">
+    <bool>false</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actRun"/>
+   <addaction name="actPause"/>
+   <addaction name="actStop"/>
+   <addaction name="actSettings"/>
+   <addaction name="actCancellation"/>
+   <addaction name="actConfiguration"/>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1294</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <widget class="QMenu" name="project">
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="title">
+     <string>Проект</string>
+    </property>
+    <widget class="QMenu" name="menuTests">
+     <property name="title">
+      <string>Добавить тест</string>
+     </property>
+     <property name="icon">
+      <iconset resource="tgca.qrc">
+       <normaloff>:/pictogram/runtonewscript.png</normaloff>:/pictogram/runtonewscript.png</iconset>
+     </property>
+     <addaction name="actCreateTest"/>
+     <addaction name="actLoadTest"/>
+    </widget>
+    <addaction name="actLoadPrj"/>
+    <addaction name="actSavePrj"/>
+    <addaction name="actAddDevice"/>
+    <addaction name="menuTests"/>
+   </widget>
+   <widget class="QMenu" name="report">
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="title">
+     <string>Отчёт</string>
+    </property>
+    <addaction name="actCreateRep"/>
+    <addaction name="actPrintRep"/>
+   </widget>
+   <widget class="QMenu" name="reference">
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="title">
+     <string>Справка</string>
+    </property>
+    <addaction name="actAbout"/>
+    <addaction name="actHelp"/>
+   </widget>
+   <widget class="QMenu" name="outputMenu">
+    <property name="title">
+     <string>Вывод</string>
+    </property>
+   </widget>
+   <addaction name="project"/>
+   <addaction name="outputMenu"/>
+   <addaction name="report"/>
+   <addaction name="reference"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QDockWidget" name="dockPro">
+   <property name="font">
+    <font>
+     <weight>50</weight>
+     <italic>true</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="floating">
+    <bool>false</bool>
+   </property>
+   <property name="windowTitle">
+    <string>Проект</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>8</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents">
+    <layout class="QGridLayout" name="gridLayout_2">
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <property name="rightMargin">
+      <number>0</number>
+     </property>
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
+     <item row="0" column="0">
+      <widget class="QTextBrowser" name="projectBrowser">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="contextMenuPolicy">
+        <enum>Qt::CustomContextMenu</enum>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="dockTest">
+   <property name="font">
+    <font>
+     <italic>true</italic>
+    </font>
+   </property>
+   <property name="windowTitle">
+    <string>Тесты</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>8</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_2">
+    <layout class="QGridLayout" name="gridLayout_3">
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <property name="rightMargin">
+      <number>0</number>
+     </property>
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
+     <item row="0" column="0">
+      <widget class="QTextBrowser" name="testBrowser">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="contextMenuPolicy">
+        <enum>Qt::CustomContextMenu</enum>
+       </property>
+       <property name="html">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:10pt; font-weight:400; font-style:italic;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans';&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <action name="actConfiguration">
+   <property name="icon">
+    <iconset resource="tgca.qrc">
+     <normaloff>:/pictogram/calculator_8158.png</normaloff>:/pictogram/calculator_8158.png</iconset>
+   </property>
+   <property name="text">
+    <string>Конфигурация</string>
+   </property>
+   <property name="iconText">
+    <string>    Регистры  </string>
+   </property>
+   <property name="toolTip">
+    <string>Просмотр и конфигурация регистров устройства</string>
+   </property>
+  </action>
+  <action name="actLoadPrj">
+   <property name="icon">
+    <iconset resource="tgca.qrc">
+     <normaloff>:/pictogram/kde-document-open_9221.png</normaloff>:/pictogram/kde-document-open_9221.png</iconset>
+   </property>
+   <property name="text">
+    <string>Загрузить</string>
+   </property>
+   <property name="toolTip">
+    <string>Загрузить проект из файла</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+P</string>
+   </property>
+  </action>
+  <action name="actSavePrj">
+   <property name="icon">
+    <iconset resource="tgca.qrc">
+     <normaloff>:/pictogram/disk_1286.png</normaloff>:/pictogram/disk_1286.png</iconset>
+   </property>
+   <property name="text">
+    <string>Сохранить</string>
+   </property>
+   <property name="toolTip">
+    <string>Сохранить проект в файле</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actCreateRep">
+   <property name="icon">
+    <iconset resource="tgca.qrc">
+     <normaloff>:/pictogram/script_save_8920.png</normaloff>:/pictogram/script_save_8920.png</iconset>
+   </property>
+   <property name="text">
+    <string>Сохранить в PDF</string>
+   </property>
+   <property name="toolTip">
+    <string>Создать отчёт для просмотра</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="actPrintRep">
+   <property name="icon">
+    <iconset resource="tgca.qrc">
+     <normaloff>:/pictogram/printer_5065.png</normaloff>:/pictogram/printer_5065.png</iconset>
+   </property>
+   <property name="text">
+    <string>Напечатать</string>
+   </property>
+   <property name="toolTip">
+    <string>Создание и печать отчёта без просмотра</string>
+   </property>
+  </action>
+  <action name="actAbout">
+   <property name="text">
+    <string>О программе</string>
+   </property>
+   <property name="toolTip">
+    <string>Справка о программе</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+H</string>
+   </property>
+  </action>
+  <action name="actHelp">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Помощь</string>
+   </property>
+   <property name="toolTip">
+    <string>Открыть файл описания (руководство)</string>
+   </property>
+   <property name="shortcut">
+    <string>F1</string>
+   </property>
+  </action>
+  <action name="actAddDevice">
+   <property name="icon">
+    <iconset resource="tgca.qrc">
+     <normaloff>:/pictogram/drive_add_7644.png</normaloff>:/pictogram/drive_add_7644.png</iconset>
+   </property>
+   <property name="text">
+    <string>Добавить устройство</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+A</string>
+   </property>
+  </action>
+  <action name="actRun">
+   <property name="icon">
+    <iconset resource="tgca.qrc">
+     <normaloff>:/pictogram/play-to.png</normaloff>:/pictogram/play-to.png</iconset>
+   </property>
+   <property name="text">
+    <string>Запуск</string>
+   </property>
+   <property name="toolTip">
+    <string>Запустить тесты (F5)</string>
+   </property>
+   <property name="shortcut">
+    <string>F5</string>
+   </property>
+  </action>
+  <action name="actCreateTest">
+   <property name="text">
+    <string>Создать</string>
+   </property>
+   <property name="toolTip">
+    <string>Создать новый тест</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="actLoadTest">
+   <property name="text">
+    <string>Загрузить</string>
+   </property>
+   <property name="toolTip">
+    <string>Загрузить тест из файла</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
+   </property>
+  </action>
+  <action name="actPause">
+   <property name="icon">
+    <iconset resource="tgca.qrc">
+     <normaloff>:/pictogram/gtk-media-pause_2289.png</normaloff>:/pictogram/gtk-media-pause_2289.png</iconset>
+   </property>
+   <property name="text">
+    <string>Пауза</string>
+   </property>
+   <property name="toolTip">
+    <string>Пауза (Break)</string>
+   </property>
+   <property name="shortcut">
+    <string>Pause</string>
+   </property>
+  </action>
+  <action name="actStop">
+   <property name="icon">
+    <iconset resource="tgca.qrc">
+     <normaloff>:/pictogram/gtk-media-stop_9402.png</normaloff>:/pictogram/gtk-media-stop_9402.png</iconset>
+   </property>
+   <property name="text">
+    <string>Стоп</string>
+   </property>
+   <property name="toolTip">
+    <string>Прервать выполнение тестов (Ctrl+Break)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Cancel</string>
+   </property>
+  </action>
+  <action name="actCancellation">
+   <property name="icon">
+    <iconset resource="tgca.qrc">
+     <normaloff>:/pictogram/clear.png</normaloff>:/pictogram/clear.png</iconset>
+   </property>
+   <property name="text">
+    <string>Сброс</string>
+   </property>
+   <property name="toolTip">
+    <string>Сброс результатов и статистик всех тестов (Alt+R)</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+R</string>
+   </property>
+  </action>
+  <action name="actSettings">
+   <property name="icon">
+    <iconset resource="tgca.qrc">
+     <normaloff>:/pictogram/control_equalizer_blue_4492.png</normaloff>:/pictogram/control_equalizer_blue_4492.png</iconset>
+   </property>
+   <property name="text">
+    <string>Настройки</string>
+   </property>
+   <property name="toolTip">
+    <string>Настройки среды (F3)</string>
+   </property>
+   <property name="shortcut">
+    <string>F3</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="tgca.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>actAddDevice</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>addNewDevice()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>548</x>
+     <y>363</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actLoadPrj</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onLoadPrj()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>548</x>
+     <y>363</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actCreateRep</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onCreateRep()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>548</x>
+     <y>363</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actHelp</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onHelp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>548</x>
+     <y>363</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actPrintRep</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onPrintRep()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>548</x>
+     <y>363</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actSavePrj</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onSavePrj()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>548</x>
+     <y>363</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>labeDevicesTitle</sender>
+   <signal>customContextMenuRequested(QPoint)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onMenuDevices(QPoint)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>85</x>
+     <y>84</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>548</x>
+     <y>363</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actAbout</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onAbout()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>548</x>
+     <y>363</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actCreateTest</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>createTest()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>597</x>
+     <y>261</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actLoadTest</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>openTest()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>158</x>
+     <y>270</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>scrollArea</sender>
+   <signal>customContextMenuRequested(QPoint)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onMenuTests(QPoint)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>787</x>
+     <y>240</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>753</x>
+     <y>322</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>centralWidget</sender>
+   <signal>customContextMenuRequested(QPoint)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onMenuDevices(QPoint)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>753</x>
+     <y>240</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>753</x>
+     <y>322</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>projectBrowser</sender>
+   <signal>customContextMenuRequested(QPoint)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onMenuOutput(QPoint)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>376</x>
+     <y>527</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>753</x>
+     <y>322</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>testBrowser</sender>
+   <signal>customContextMenuRequested(QPoint)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onMenuOutput(QPoint)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1131</x>
+     <y>527</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>753</x>
+     <y>322</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <signal>runPressed()</signal>
+  <slot>onLoadTst()</slot>
+  <slot>onCreateRep()</slot>
+  <slot>onAbout()</slot>
+  <slot>addNewDevice()</slot>
+  <slot>onPushConfig()</slot>
+  <slot>onLoadPrj()</slot>
+  <slot>onSavePrj()</slot>
+  <slot>onRunTst()</slot>
+  <slot>onPrintRep()</slot>
+  <slot>onHelp()</slot>
+  <slot>onMenuDevices(QPoint)</slot>
+  <slot>createTest()</slot>
+  <slot>onStop()</slot>
+  <slot>onPause()</slot>
+  <slot>onMenuTests(QPoint)</slot>
+  <slot>onMenuOutput(QPoint)</slot>
+  <slot>openTest()</slot>
+ </slots>
+</ui>
