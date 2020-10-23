@@ -30,7 +30,7 @@ public:
     uint data, datainc, inverse, output;
     long inCycle;
     QString memType, mode;
-    Device *dev;
+    TerasicDevice *dev;
     QString subDev;
     int checkReadData;
 

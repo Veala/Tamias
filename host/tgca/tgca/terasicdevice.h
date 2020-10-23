@@ -1,5 +1,5 @@
-#ifndef DEVICE_H
-#define DEVICE_H
+#ifndef TERASICDEVICE_H
+#define TERASICDEVICE_H
 
 #include "baseterasicdevice.h"
 #include "lscgatewaythread.h"
@@ -16,7 +16,7 @@
 #endif
 //#define TIMING
 
-class Device : public BaseTerasicDevice
+class TerasicDevice : public BaseTerasicDevice
 {
     Q_OBJECT
     int memSize = 16384;
@@ -38,8 +38,8 @@ class Device : public BaseTerasicDevice
 #endif
 
 public:
-    explicit Device(QWidget *parent = 0, QString name = "default", QTextBrowser *tB = NULL);
-    virtual ~Device();
+    explicit TerasicDevice(QWidget *parent = 0, QString name = "default", QTextBrowser *tB = NULL);
+    virtual ~TerasicDevice();
     void startLSCGateway();
     LSCGatewayThread lscGatewayThread;
 
@@ -47,4 +47,4 @@ public slots:
     void setLSCGatewayEnabled(int e) { qDebug() << "setLSCGatewayEnabled"; isLSCGatewayEnabled = e; }
 };
 
-#endif // DEVICE_H
+#endif // TERASICDEVICE_H

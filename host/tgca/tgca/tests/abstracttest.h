@@ -19,7 +19,7 @@
 #include <QMessageBox>
 #include <QDrag>
 #include "../funclib.h"
-#include "../device.h"
+#include "../terasicdevice.h"
 #include "../data_structs.h"
 #include "../animatedspinnericon.h"
 #include "../globalstate.h"
@@ -156,7 +156,7 @@ protected:
     QThread testThread;
     absObjToThread *objToThread;
     QList<QLineEdit*> deviceLineEditList;
-    QList<Device*> deviceList;
+    QList<BaseDevice*> deviceList;
     QList<QString> subDeviceList;
     QMap<QString, QLabel*> statsMap;
     QString saveFileNameStr;
@@ -173,8 +173,8 @@ protected:
     bool userMode() const { return !su; }
     int progrMode;
     void message(QString m = "", QString browser = "project");
-    void setConnections(Device*);
-    void setDisconnections(Device*);
+    void setConnections(BaseDevice*);
+    void setDisconnections(BaseDevice*);
     virtual void setEnabledSpecial(bool b);
     void disableStat();
 

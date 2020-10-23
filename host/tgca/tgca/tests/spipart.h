@@ -28,7 +28,7 @@ public slots:
 public:
     QList<uint> addr, data;
     int cycle, lines;
-    Device *dev;
+    TerasicDevice *dev;
     QString subDev;
 
 };

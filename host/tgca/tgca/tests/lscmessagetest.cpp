@@ -273,7 +273,7 @@ void LscMessageTest::statsToZero()
 void LscMessageTest::startTest()
 {
     lscMessageObjToThread* curThread = (lscMessageObjToThread*)objToThread;
-    curThread->dev = deviceList.at(0);
+    curThread->dev = (TerasicDevice*)deviceList.at(0);
     //curThread->devRT = deviceList.at(1);
     curThread->busBC = subDeviceList.at(0).toUInt();
     curThread->busRT = subDeviceList.at(1).toUInt();

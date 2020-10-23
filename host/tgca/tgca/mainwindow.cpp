@@ -167,19 +167,37 @@ bool MainWindow::loadProject(QSettings& settings)
         settings.setArrayIndex(i);
 
         QString name = settings.value("name").toString();
-        //TODO
+        int type = settings.value("type").toInt();
+        //TODODEVICE
         if (!name.isEmpty())
         {
-            Device *device = new Device(this, name, ui->projectBrowser);
-            ui->devices->addWidget(device);
-            LSCTable::addDevice(name);
-            connect(device, SIGNAL(sigDelete(QString)), this, SLOT(delDevice(QString)), Qt::DirectConnection);
-            emit newDev(name);
-            if (!device->connection.setFromFile(settings.value("connections").toString()))
-            {
-                device->connection.setServerIP(settings.value("IP").toString());
-                device->connection.setServerPORT(settings.value("port").toString());
-                device->connection.setHostIP(settings.value("hostIP").toString());
+            switch (type) {
+            case DeviceTypes::terasic: {
+                TerasicDevice *device = new TerasicDevice(this, name, ui->projectBrowser);
+                ui->devices->addWidget(device);
+                LSCTable::addDevice(name);
+                connect(device, SIGNAL(sigDelete(QString)), this, SLOT(delDevice(QString)), Qt::DirectConnection);
+                emit newDev(name);
+                if (!device->setSettingsFromFile(settings.value("connections").toString()))
+                {
+                    device->connection.setServerIP(settings.value("IP").toString());
+                    device->connection.setServerPORT(settings.value("port").toString());
+                    device->connection.setHostIP(settings.value("hostIP").toString());
+                }
+                break;
+            }
+
+            case DeviceTypes::switch411: {
+                Switch411Device *device = new Switch411Device(this, name, ui->projectBrowser);
+                ui->devices->addWidget(device);
+                connect(device, SIGNAL(sigDelete(QString)), this, SLOT(delDevice(QString)), Qt::DirectConnection);
+                emit newDev(name);
+                if (!device->setSettingsFromFile(settings.value("connections").toString()))
+                {
+                    device->connection.setMfectlPath(settings.value("Mfectl").toString());
+                }
+                break;
+            }
             }
         }
     }
@@ -255,22 +273,37 @@ bool MainWindow::onSavePrj()
     ini.setValue("Common/pauseChecked", this->settings.getPauseChecked());
 
     ini.beginWriteArray("Devices");
-    //TODO
+    //TODODEVICE
     for (int j=0; j<ui->devices->count(); j++)
     {
-        Device *dev = (Device*)ui->devices->itemAt(j)->widget();
+        BaseDevice *dev = (BaseDevice*)ui->devices->itemAt(j)->widget();
 
         ini.setArrayIndex(j);
         ini.setValue("name", dev->getName());
-        QString fname = dev->connection.getFileName();
-        if (fname.isEmpty())
-        {
-            ini.setValue("IP", dev->connection.getServerIP());
-            ini.setValue("port", dev->connection.getServerPORT());
-            ini.setValue("hostIP", dev->connection.getHostIP());
+        ini.setValue("type", dev->getType());
+        QString fname = dev->getFileSettingsName();
+        switch (dev->getType()) {
+        case terasic: {
+            if (fname.isEmpty())
+            {
+                ini.setValue("IP", ((TerasicDevice*)dev)->connection.getServerIP());
+                ini.setValue("port", ((TerasicDevice*)dev)->connection.getServerPORT());
+                ini.setValue("hostIP", ((TerasicDevice*)dev)->connection.getHostIP());
+            }
+            else
+                ini.setValue("connections", fname);
+            break;
         }
-        else
-            ini.setValue("connections", fname);
+        case switch411: {
+            if (fname.isEmpty())
+            {
+                ini.setValue("Mfectl", ((Switch411Device*)dev)->connection.getMfectlPath());
+            }
+            else
+                ini.setValue("connections", fname);
+            break;
+        }
+        }
     }
     ini.endArray();
 
@@ -300,7 +333,7 @@ void MainWindow::prepare()
         return;
     } else {
         if(AbstractTest::getBeginTest() != NULL)
-            curIndex = ui->tests->indexOf(AbstractTest::getBeginTest());
+            curIndex = ui->tests->indexOf((QFrame *)AbstractTest::getBeginTest());
         prepareFirstStart=1;
         logFile.setFileName(settings.getLogFileName());
         if (!logFile.open(QIODevice::Append)) {
@@ -355,24 +388,34 @@ void MainWindow::addNewDevice(QString name, int type)
         }
     }
 
+    //TODODEVICE
     switch (type) {
     case DeviceTypes::terasic:
-        dev = new Device(this, name, ui->projectBrowser);   //TODO
+        dev = new TerasicDevice(this, name, ui->projectBrowser);
+        LSCTable::addDevice(name);
         break;
     case DeviceTypes::switch411:
-        dev = new Device(this, name, ui->projectBrowser);   //TODO
+        dev = new Switch411Device(this, name, ui->projectBrowser);
         break;
     }
     ui->devices->addWidget(dev);
     //ui->projectBrowser->append(tr("Устройство %1 добавлено").arg(name));
-    LSCTable::addDevice(name);
     connect(dev, SIGNAL(sigDelete(QString)), this, SLOT(delDevice(QString)), Qt::DirectConnection);
     emit newDev(name);
+    deviceSelection.hide();
 }
 
 void MainWindow::delDevice(QString name)
 {
-    LSCTable::delDevice(name);
+    //TODODEVICE
+    switch (((BaseDevice*)sender())->getType()) {
+    case DeviceTypes::terasic:
+        LSCTable::delDevice(name);
+        break;
+    case DeviceTypes::switch411:
+
+        break;
+    }
 }
 
 void MainWindow::loadTest(AbstractTest* test)

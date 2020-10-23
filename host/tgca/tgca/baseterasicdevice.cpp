@@ -1,26 +1,12 @@
 #include "baseterasicdevice.h"
 
 BaseTerasicDevice::BaseTerasicDevice(QWidget *parent, QString name, QTextBrowser *tB) :
-    BaseDevice(parent, name, tB)
+    BaseDevice(parent, name, terasic, tB)
 {
-    setName(name);
-    projectBrowser = tB;
-    QAction *act = menu.addAction(tr("Настроить tcp/ip"));
-    connect(act, SIGNAL(triggered(bool)), &connection, SLOT(show()));
-    act = menu.addAction(tr("Сохранить tcp/ip"));
-    connect(act, SIGNAL(triggered(bool)), &connection, SLOT(save()));
-    act = menu.addAction(tr("Удалить"));
-    connect(act, SIGNAL(triggered(bool)), this, SLOT(tryToDelete()));
-
+    connection.setName(name);
+    toSocketDriver.setObjectName(name);
     connect(&connection, SIGNAL(checkDevice(bool)), this, SLOT(checkDevice()));
     //connect(sock, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(doError(QAbstractSocket::SocketError)));
-
-    setAutoFillBackground(true);
-    setFrameStyle(QFrame::Box | QFrame::Plain);
-    QPalette palette;
-    QBrush br(Qt::blue); palette.setBrush(QPalette::Window, br); this->setPalette(palette);
-    //ui->picture->setPixmap(QPixmap(tr(":/pictogram/hardware_8356.png")));
-
     connect(this, SIGNAL(tcpInit()), &socketDriver, SLOT(init()), Qt::BlockingQueuedConnection);
     connect(this, SIGNAL(stopAll()), &socketDriver, SLOT(stop()), Qt::BlockingQueuedConnection);
     connect(this, SIGNAL(tcpConnect(QString,ushort)), &socketDriver, SLOT(tryToConnect(QString,ushort)), Qt::BlockingQueuedConnection);
@@ -55,13 +41,6 @@ BaseTerasicDevice::~BaseTerasicDevice()
 #ifdef PRINT_START_END_DESTRUCTOR
     qDebug() << "~BaseTerasicDevice() end";
 #endif
-}
-
-void BaseTerasicDevice::setName(QString name)
-{
-    BaseDevice::setName(name);
-    connection.setName(name);
-    toSocketDriver.setObjectName(name);
 }
 
 void BaseTerasicDevice::tryToConnect()
@@ -193,6 +172,42 @@ void BaseTerasicDevice::readRegs(QVector<BaseReg *>& regs)
     for (int i=0; i<regs.size(); i++) {
         *((quint32*)regs[i]+1) = *((quint32*)answer.data()+i);
     }
+}
+
+void BaseTerasicDevice::showSettings()
+{
+    connection.show();
+}
+
+void BaseTerasicDevice::saveSettings()
+{
+    BaseDevice::saveSettings();
+    QSettings devini(getFileSettingsName(), QSettings::IniFormat);
+    devini.clear();
+    devini.setValue("Device/IP", connection.getServerIP());
+    devini.setValue("Device/port", connection.getServerPORT());
+    devini.setValue("Host/IP", connection.getHostIP());
+}
+
+bool BaseTerasicDevice::setSettingsFromFile(QString fileName)
+{
+    if (!BaseDevice::setSettingsFromFile(fileName))
+        return false;
+
+    QSettings settings(fileName, QSettings::IniFormat);
+    if (settings.status() != QSettings::NoError)
+    {
+        qDebug() << "Error: " << settings.status();
+        setFileSettingsName("");
+        return false;
+    }
+
+    connection.setServerIP(settings.value("Device/IP").toString());
+    connection.setServerPORT(settings.value("Device/port").toString());
+    connection.setHostIP(settings.value("Host/IP").toString());
+
+    setFileSettingsName(fileName);
+    return true;
 }
 
 void BaseTerasicDevice::doError(QAbstractSocket::SocketError err)

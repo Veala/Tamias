@@ -101,8 +101,8 @@ void SpelsAmperage::startTest()
     curThread->iterPause = iterPause->value();
     curThread->iterNum = iterNum->value();
     curThread->outputBCstatus = outputBCstatus->currentText();
-    curThread->BC = deviceList.at(0);
-    curThread->RT = deviceList.at(1);
+    curThread->BC = (TerasicDevice*)deviceList.at(0);
+    curThread->RT = (TerasicDevice*)deviceList.at(1);
     curThread->subDevBC = subDeviceList.at(0);
     curThread->subDevRT = subDeviceList.at(1);
 

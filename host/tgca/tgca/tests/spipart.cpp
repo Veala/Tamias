@@ -75,7 +75,7 @@ void SpiPart::startTest()
         curThread->data.append(((QLineEdit*)table->cellWidget(i,1))->text().toUInt(nullptr, 16));
     }
 
-    curThread->dev = deviceList.at(0);
+    curThread->dev = (TerasicDevice*)deviceList.at(0);
     curThread->subDev = subDeviceList.at(0);
     curThread->lines = linesEdit->text().toInt();
     curThread->cycle = cycleChBox->isChecked();

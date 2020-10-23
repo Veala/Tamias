@@ -4,12 +4,12 @@
 #include <QThread>
 #include <QDebug>
 
-class Device;
+class TerasicDevice;
 
 class LSCGatewayThread : public QThread
 {
     Q_OBJECT
-    Device* dev;
+    TerasicDevice* dev;
 public:
     explicit LSCGatewayThread(QObject *parent = 0) : QThread(parent) { }
     ~LSCGatewayThread() {
@@ -17,7 +17,7 @@ public:
         qDebug() << "~LSCGatewayThread()";
 #endif
     }
-    void setDevice(Device* d)  { dev = d; }
+    void setDevice(TerasicDevice* d)  { dev = d; }
     QString state;
 protected:
     virtual void run() Q_DECL_OVERRIDE;

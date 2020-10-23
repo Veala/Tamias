@@ -1,16 +1,23 @@
 #include "basedevice.h"
 #include "ui_basedevice.h"
 
-BaseDevice::BaseDevice(QWidget *parent, QString name, QTextBrowser *tB) :
+BaseDevice::BaseDevice(QWidget *parent, QString name, int type, QTextBrowser *tB) :
     QFrame(parent),
     ui(new Ui::BaseDevice)
 
 {
     ui->setupUi(this);
+
     setName(name);
+    setType(type);
     projectBrowser = tB;
-    QAction *act = menu.addAction(tr("Удалить"));
-    connect(act, SIGNAL(triggered(bool)), this, SLOT(tryToDelete()));
+
+    QAction *act = menu.addAction(tr("Настроить устройство"));
+    connect(act, &QAction::triggered, this, &BaseDevice::showSettings);
+    act = menu.addAction(tr("Сохранить настройки"));
+    connect(act, &QAction::triggered, this, &BaseDevice::saveSettings);
+    act = menu.addAction(tr("Удалить устройство"));
+    connect(act, &QAction::triggered, this, &BaseDevice::tryToDelete);
 
     setAutoFillBackground(true);
     setFrameStyle(QFrame::Box | QFrame::Plain);
@@ -26,7 +33,6 @@ BaseDevice::BaseDevice(QWidget *parent, QString name, QTextBrowser *tB) :
 BaseDevice::~BaseDevice()
 {
     //---------------------------------когда тесты работают - добавить корректное удаление девайса
-    //sock->abort();
 #ifdef PRINT_START_END_DESTRUCTOR
     qDebug() << "~BaseDevice() start";
 #endif
@@ -78,6 +84,37 @@ void BaseDevice::message(QString m)
 {
     QDateTime local(QDateTime::currentDateTime());
     projectBrowser->append(local.toString(tr("dd.MM.yyyy hh:mm:ss - ")) + ui->name->text() + ". " + m);
+}
+
+void BaseDevice::saveSettings()
+{
+    if (getFileSettingsName().isEmpty())
+    {
+        QString deviceName = getName();
+        if (deviceName.size() == 0)
+            deviceName = "device_default";
+        setFileSettingsName(deviceName + QString(".dev"));
+    }
+}
+
+bool BaseDevice::setSettingsFromFile(QString fileName)
+{
+    if (fileName.isEmpty())
+    {
+        setFileSettingsName("");
+        return false;
+    }
+    return true;
+}
+
+QString BaseDevice::getFileSettingsName() const
+{
+    return m_fileSettingsName;
+}
+
+void BaseDevice::setFileSettingsName(QString fileSettingsName)
+{
+    m_fileSettingsName = fileSettingsName;
 }
 
 void BaseDevice::tryToDelete()

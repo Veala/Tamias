@@ -2,7 +2,7 @@
 #define LSCFORMAT_H
 
 #include "extern_hsc.h"
-#include "device.h"
+#include "terasicdevice.h"
 #include <QByteArray>
 
 /// Шина
@@ -18,7 +18,7 @@ public:
     virtual ~C_LSC_Format() {}
 
     void addMessage(int &addrStackRT, int &addrStackBC, int &addrMesBC);
-    void setDevice(Device* dev) { pDev = dev; }
+    void setDevice(TerasicDevice* dev) { pDev = dev; }
     void setSABufs(word32_t* rec, word32_t* trm, word32_t* brd_rec) { sa_buf_rec = rec, sa_buf_trm=trm, sa_buf_brd = brd_rec; }
     bool checkRW() { if (readRW() == expectedRW) { spoilRW(); return true;} return false; }
     bool checkSWBC();
@@ -28,7 +28,7 @@ public:
     //bool checkExtended() { bool b=checkRT(); spoilAll(); return b; }
 
 protected:
-    Device* pDev;
+    TerasicDevice* pDev;
     //word32_t body[38];
     //int body_len;
     word32_t bus_flag;

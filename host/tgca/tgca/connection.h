@@ -26,17 +26,13 @@ public:
     void setServerPORT(QString);
     void setHostIP(QString);
     void setName(QString);
-    bool setFromFile(QString filename);
-    QString getFileName() const;
     bool forBind;
 
 public slots:
-    void save();
     void show_hide_host();
 
 private:
     Ui::Connection *ui;
-    QString file;
 };
 
 #endif // CONNECTIONFORM_H

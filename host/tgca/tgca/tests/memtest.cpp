@@ -73,7 +73,7 @@ void MemTest::startTest()
     curThread->inverse = inversion->currentText().toUInt();
     curThread->inCycle = iteration->value();
     curThread->output = oput->currentText().toUInt();
-    curThread->dev = deviceList.at(0);
+    curThread->dev = (TerasicDevice*)deviceList.at(0);
     curThread->subDev = subDeviceList.at(0);
 
     emit startTestTh();

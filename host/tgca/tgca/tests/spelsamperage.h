@@ -180,9 +180,9 @@ public:
 public slots:
     virtual void doWork();
 public:
-    Device *BC;
-    Device *RT;
-    Device *dev;
+    TerasicDevice *BC;
+    TerasicDevice *RT;
+    TerasicDevice *dev;
     QString subDevBC;
     QString subDevRT;
     DCThread *dcThread;

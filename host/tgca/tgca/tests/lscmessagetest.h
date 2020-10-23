@@ -78,7 +78,7 @@ public:
     ~lscMessageObjToThread();
 
     //Device *devBC, *devRT;
-    Device *dev;
+    TerasicDevice *dev;
     //QString subDevBC;
     //QString subDevRT;
     //QString m_curSubDev;

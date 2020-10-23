@@ -25,7 +25,6 @@ SOURCES += main.cpp\
     deviceselectionform.cpp \
     mainwindow.cpp \
     connection.cpp \
-    device.cpp \
     funclib.cpp \
     registers.cpp \
     animatedspinnericon.cpp \
@@ -35,6 +34,9 @@ SOURCES += main.cpp\
     lscgatewaythread.cpp \
     globalstate.cpp \
     inputdialog.cpp \
+    switch411device.cpp \
+    switch411devicesettings.cpp \
+    terasicdevice.cpp \
     tests/abstracttest.cpp \
     tests/memtest.cpp \
     tests/spipart.cpp \
@@ -48,7 +50,6 @@ SOURCES += main.cpp\
 HEADERS  += mainwindow.h \
     basedevice.h \
     connection.h \
-    device.h \
     deviceselectionform.h \
     funclib.h \
     data_structs.h \
@@ -62,6 +63,9 @@ HEADERS  += mainwindow.h \
     globalstate.h \
     comboboxnoscroll.h \
     inputdialog.h \
+    switch411device.h \
+    switch411devicesettings.h \
+    terasicdevice.h \
     tests/abstracttest.h \
     tests/memtest.h \
     tests/spipart.h \
@@ -89,7 +93,8 @@ FORMS    += mainwindow.ui \
     ../default/settings_pause.ui \
     ../default/stats_pause.ui \
     ../default/settings_lsc_message_test.ui \
-    ../default/stats_lsc_message_test.ui
+    ../default/stats_lsc_message_test.ui \
+    switch411devicesettings.ui
 
 RESOURCES += \
     tgca.qrc

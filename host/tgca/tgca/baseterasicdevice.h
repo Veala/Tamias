@@ -29,7 +29,7 @@ public:
 
     Connection connection;
 
-    virtual void setName(QString);
+    bool setSettingsFromFile(QString fileName) override;
     void tryToConnect();
     void tryToDisconnect();
 
@@ -59,6 +59,10 @@ public:
 
     REG_LSC_cfg1_BC reg_lsc_cfg1_BC; REG_LSC_cfg1_RT_st reg_lsc_cfg1_RT_st; REG_LSC_cfg1_RT_al reg_lsc_cfg1_RT_al; REG_LSC_cfg1_BM reg_lsc_cfg1_BM; REG_LSC_cfg2_ reg_lsc_cfg2_; REG_LSC_cfg3_ reg_lsc_cfg3_; REG_LSC_cfg4_ reg_lsc_cfg4_;
     REG_LSC_cfg5_ reg_lsc_cfg5_; REG_LSC_srr reg_lsc_srr;
+
+protected:
+    void showSettings() override;
+    void saveSettings() override;
 
 private:
     SocketDriver socketDriver;

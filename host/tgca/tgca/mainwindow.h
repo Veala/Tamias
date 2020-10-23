@@ -8,7 +8,8 @@
 #include <QFileDialog>
 #include <QPrinter>
 #include <QStringList>
-#include "device.h"
+#include "terasicdevice.h"
+#include "switch411device.h"
 #include "tests/abstracttest.h"
 #include "lsctable.h"
 #include "settings.h"

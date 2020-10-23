@@ -25,18 +25,28 @@ signals:
     void sigDisconnectedDevice();
 
 public:
-    explicit BaseDevice(QWidget *parent = 0, QString name = "default", QTextBrowser *tB = NULL);
+    explicit BaseDevice(QWidget *parent = 0, QString name = "default", int type = 0, QTextBrowser *tB = NULL);
     virtual ~BaseDevice();
 
     bool isMonitor();
-    virtual void setName(QString);
+    void setName(QString);
     QString getName() const;
-    void setType(int);
+    virtual void setType(int);
     int getType() const;
+    QString getFileSettingsName() const;
+    void setFileSettingsName(QString fileSettingsName);
+    virtual bool setSettingsFromFile(QString fileName);
+
+    enum DeviceTypes {
+        terasic,
+        switch411
+    };
 
 protected:
     void mousePressEvent(QMouseEvent *event);
     void message(QString);
+    virtual void showSettings() = 0;
+    virtual void saveSettings();
 
     QMenu menu;
     QTextBrowser* projectBrowser;
@@ -44,6 +54,7 @@ protected:
 private:
     Ui::BaseDevice *ui;
     int m_type;
+    QString m_fileSettingsName;
 
 private slots:
     void tryToDelete();

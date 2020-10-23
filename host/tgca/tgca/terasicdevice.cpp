@@ -1,6 +1,6 @@
-#include "device.h"
+#include "terasicdevice.h"
 
-Device::Device(QWidget *parent, QString name, QTextBrowser *tB) :
+TerasicDevice::TerasicDevice(QWidget *parent, QString name, QTextBrowser *tB) :
     BaseTerasicDevice(parent, name, tB), isLSCGatewayEnabled(0)
 {
     lscGatewayThread.setDevice(this);
@@ -29,10 +29,10 @@ Device::Device(QWidget *parent, QString name, QTextBrowser *tB) :
     }
 }
 
-Device::~Device()
+TerasicDevice::~TerasicDevice()
 {
 #ifdef PRINT_START_END_DESTRUCTOR
-    qDebug() << "~Device() start";
+    qDebug() << "~TerasicDevice() start";
 #endif
 #ifdef Q_OS_WIN32
     CloseHandle(tgcaEvent);
@@ -42,11 +42,11 @@ Device::~Device()
     delete memoryFrom;
     delete memoryTo;
 #ifdef PRINT_START_END_DESTRUCTOR
-    qDebug() << "~Device() end";
+    qDebug() << "~TerasicDevice() end";
 #endif
 }
 
-void Device::startLSCGateway()
+void TerasicDevice::startLSCGateway()
 {
     qDebug() << "startLSCGateway() is OK";
     int ref_isLSCGatewayEnabled = 0*sizeof(int); isLSCGatewayEnabled = 1;

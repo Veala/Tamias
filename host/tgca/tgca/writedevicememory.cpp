@@ -23,7 +23,7 @@ void CWriteDeviceMemory::addRamLSC(word32_t addr, word32_t val)
     addrvals.append((char*)&val, 4);
 }
 
-void CWriteDeviceMemory::writeDev(Device* dev, bool clean)
+void CWriteDeviceMemory::writeDev(TerasicDevice* dev, bool clean)
 {
     if (!addrvals.isEmpty())
     {

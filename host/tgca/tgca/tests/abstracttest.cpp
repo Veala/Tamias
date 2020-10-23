@@ -272,7 +272,7 @@ void AbstractTest::statsSave()
     }
 }
 
-void AbstractTest::setConnections(Device *dev)
+void AbstractTest::setConnections(BaseDevice *dev)
 {
     connect(dev, SIGNAL(sigDelete(QString)), this, SLOT(deletingDevice(QString)), Qt::DirectConnection);
 //    connect(dev, SIGNAL(sigConnectedDevice()), this, SLOT(connectingSockDevice()));
@@ -280,7 +280,7 @@ void AbstractTest::setConnections(Device *dev)
 //    connect(dev, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(errorDevice(QAbstractSocket::SocketError)));
 }
 
-void AbstractTest::setDisconnections(Device *dev)
+void AbstractTest::setDisconnections(BaseDevice *dev)
 {
 #ifdef debug_AT
     qDebug() << "setDisconnections!";
@@ -329,7 +329,7 @@ AbstractTest::RunningState AbstractTest::getRunningState() const
 void AbstractTest::checkDeviceAvailability(int x)
 {
     int counter=0;
-    Device* dev;
+    BaseDevice* dev;
     if (deviceList.count() == deviceLineEditList.count()) {
         for (int i=0; i<deviceLineEditList.count(); i++) {
             if (deviceLineEditList[i]->text().split(":").first() == deviceList[i]->getName()) {
@@ -360,7 +360,7 @@ void AbstractTest::checkDeviceAvailability(int x)
     for (int i=0; i<deviceLineEditList.count(); i++) {
         int j=0;
         for (; j<devices->count(); j++) {
-            dev = (Device*)devices->itemAt(j)->widget();
+            dev = (BaseDevice*)devices->itemAt(j)->widget();
             //qDebug() << deviceLineEditList[i]->text();
             //qDebug() << dev->getName();
             QStringList tempDevices = deviceLineEditList[i]->text().split(":");
@@ -412,7 +412,7 @@ void AbstractTest::deletingDevice_part()
         qDebug() << "senderName" << senderName;
 #endif
         if (senderName == "BaseDevice") {
-            devices->removeWidget((Device*)sender());
+            devices->removeWidget((BaseDevice*)sender());
         }
     }
     for (int i=0; i<deviceList.count(); i++)
