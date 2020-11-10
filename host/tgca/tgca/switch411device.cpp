@@ -4,14 +4,43 @@ Switch411Device::Switch411Device(QWidget *parent, QString name, QTextBrowser *tB
     BaseDevice(parent, name, switch411, tB)
 {
     connection.setName(name);
-    m_simpleWriteCmd << "--phyad" << " " << "-r" << " ";
-    m_simpleWriteCmd << "--phyad" << " " << "-r" << " ";
+    toMfectlDriver.setObjectName(name);
+    //connect(&connection, SIGNAL(checkDevice(bool)), this, SLOT(checkDevice()));
+    //connect(sock, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(doError(QAbstractSocket::SocketError)));
+    connect(this, SIGNAL(driverInit()), &mfectlDriver, SLOT(init()), Qt::BlockingQueuedConnection);
+    connect(this, SIGNAL(driverStopAll()), &mfectlDriver, SLOT(stop()), Qt::BlockingQueuedConnection);
+    connect(this, SIGNAL(driverStart(QString,QString)), &mfectlDriver, SLOT(tryToStart(QString,QString)), Qt::BlockingQueuedConnection);
+    connect(this, SIGNAL(driverStop()), &mfectlDriver, SLOT(tryToStop()), Qt::BlockingQueuedConnection);
+    connect(this, SIGNAL(driverExchange()), &mfectlDriver, SLOT(tryToExchange()), Qt::BlockingQueuedConnection);
+    mfectlDriver.moveToThread(&toMfectlDriver);
+    mfectlDriver.setObjectName(name);
+    toMfectlDriver.start();
+    emit driverInit();
+    mfectlDriver.mutex->lock();
     message(tr("Устройство добавлено"));
+
 }
 
 Switch411Device::~Switch411Device()
 {
-
+    //---------------------------------когда тесты работают - добавить корректное удаление девайса
+    //sock->abort();
+#ifdef PRINT_START_END_DESTRUCTOR
+    qDebug() << "~Switch411Device() start";
+#endif
+    emit driverStopAll();
+    mfectlDriver.mutex->unlock();
+    toMfectlDriver.quit();
+    //toSocketDriver.terminate();
+    toMfectlDriver.wait();
+    emit sigDelete(getName());
+#ifdef PRINT_START_END_DESTRUCTOR
+    qDebug() << "Device " << getName() << " deleted.";
+#endif
+    message(tr("Устройство удалено"));
+#ifdef PRINT_START_END_DESTRUCTOR
+    qDebug() << "~Switch411Device() end";
+#endif
 }
 
 bool Switch411Device::setSettingsFromFile(QString fileName)
@@ -33,31 +62,50 @@ bool Switch411Device::setSettingsFromFile(QString fileName)
     return true;
 }
 
-void Switch411Device::tryToConnect()
+void Switch411Device::tryToStart()
 {
-    if (!QFile::exists(connection.getMfectlPath()))
+    mfectlDriver.mutex->unlock();
+    mfectlDriver.allData.format = ExchangeFormatSwitch411::start_mfectl;
+    emit driverStart(connection.getMfectlPath(), QString(" -r -p -"));
+    mfectlDriver.mutex->lock();
+    if (mfectlDriver.getMfectlState() != QProcess::Running)
         throw QString("connection");
-    m_Mfectl.setProgram(connection.getMfectlPath());
 }
 
-void Switch411Device::write(ushort addr, ushort data)
+void Switch411Device::tryToStop()
 {
-    m_simpleWriteCmd.replace(1, QString::number(addr >> 5));
-    m_simpleWriteCmd.replace(1, QString::number(addr & 0x1F, 16) + QString("=") + QString::number(data, 16));
-    m_Mfectl.setArguments(m_simpleWriteCmd);
-    m_Mfectl.start();
-    if(!m_Mfectl.waitForFinished(5000)) {
-        m_Mfectl.kill();
-        throw QString("Error: waitForFinished. Process was killed");
-    }
+    mfectlDriver.mutex->unlock();
+    mfectlDriver.allData.format = ExchangeFormatSwitch411::stop_mfectl;
+    emit driverStop();
+    mfectlDriver.mutex->lock();
+    //qDebug() << "after mutex lock";
+//    if (mfectlDriver.getMfectlState() != QProcess::Running)
+//        throw QString("connection");
+    //qDebug() << "mfectl state: " << mfectlDriver.getMfectlState();
 }
 
-ushort Switch411Device::read(ushort addr)
+void Switch411Device::writeReg(BaseSwitch411Reg &reg)
 {
-    m_simpleReadCmd.replace(1, QString::number(addr >> 5));
-    m_simpleReadCmd.replace(1, QString::number(addr & 0x1F, 16));
-    m_Mfectl.setArguments(m_simpleReadCmd);
-    m_Mfectl.start();
+    mfectlDriver.mutex->unlock();
+    mfectlDriver.allData.format = ExchangeFormatSwitch411::write_reg;
+    mfectlDriver.allData.addr = reg.address;
+    mfectlDriver.allData.data = (quint16*)&reg + 1;
+    emit driverExchange();
+    mfectlDriver.mutex->lock();
+    if (mfectlDriver.getMfectlState() != QProcess::Running)
+        throw QString("process");
+}
+
+void Switch411Device::readReg(BaseSwitch411Reg &reg)
+{
+    mfectlDriver.mutex->unlock();
+    mfectlDriver.allData.format = ExchangeFormatSwitch411::read_reg;
+    mfectlDriver.allData.addr = reg.address;
+    mfectlDriver.allData.data = (quint16*)&reg + 1;
+    emit driverExchange();
+    mfectlDriver.mutex->lock();
+    if (mfectlDriver.getMfectlState() != QProcess::Running)
+        throw QString("process");
 }
 
 void Switch411Device::showSettings()
@@ -71,4 +119,9 @@ void Switch411Device::saveSettings()
     QSettings devini(getFileSettingsName(), QSettings::IniFormat);
     devini.clear();
     devini.setValue("Device/Mfectl", connection.getMfectlPath());
+}
+
+void Switch411Device::doError(QProcess::ProcessError err)
+{
+
 }

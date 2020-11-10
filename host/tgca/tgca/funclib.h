@@ -13,6 +13,12 @@ enum ExchangeFormat {
     cpy_on_hard = 7
 };
 
+enum ExchangeFormatSwitch411 {
+    start_mfectl,
+    stop_mfectl,
+    write_reg,
+    read_reg,
+};
 enum DeviceMode {
     LSC_BC,
     LSC_RT_st,

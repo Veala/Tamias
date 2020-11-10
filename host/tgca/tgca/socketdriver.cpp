@@ -129,6 +129,7 @@ void SocketDriver::tryToExchange()
 {
     if (socket->state() == QAbstractSocket::UnconnectedState)
         return;
+
     timer->start();
     head_and_Data.clear();
     allData.littleAnswer = 0;

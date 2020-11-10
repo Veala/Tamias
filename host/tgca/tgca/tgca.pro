@@ -26,6 +26,7 @@ SOURCES += main.cpp\
     mainwindow.cpp \
     connection.cpp \
     funclib.cpp \
+    mfectldriver.cpp \
     registers.cpp \
     animatedspinnericon.cpp \
     socketdriver.cpp \
@@ -45,14 +46,17 @@ SOURCES += main.cpp\
     tests/pausetest.cpp \
     tests/lscmessagetest.cpp \
     lscformat.cpp \
+    tests/switch411basetest.cpp \
     writedevicememory.cpp
 
 HEADERS  += mainwindow.h \
     basedevice.h \
     connection.h \
+    data_structs_switch411.h \
     deviceselectionform.h \
     funclib.h \
     data_structs.h \
+    mfectldriver.h \
     registers.h \
     picts.h \
     animatedspinnericon.h \
@@ -76,9 +80,12 @@ HEADERS  += mainwindow.h \
     extern_hsc.h \
     lscformat.h \
     regNSK.h \
+    tests/switch411basetest.h \
     writedevicememory.h
 
 FORMS    += mainwindow.ui \
+    ../default/settings_switch411_base_test.ui \
+    ../default/stats_switch411_base_test.ui \
     connection.ui \
     basedevice.ui \
     deviceselectionform.ui \

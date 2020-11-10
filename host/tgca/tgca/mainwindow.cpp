@@ -446,14 +446,16 @@ void MainWindow::applyToAllTests(QString& , QString& classType, QString& fieldNa
         AbstractTest *test = (AbstractTest*)ui->tests->itemAt(i)->widget();
         //if (test->testType() == testType)
         {
-            QWidget* wid;
+            QWidget* wid = nullptr;
             if (classType == "QCheckBox")
             {
-               if (wid = test->findField<QCheckBox>(fieldName)) ((QCheckBox*)wid)->setChecked(!value.isEmpty());
+                wid = test->findField<QCheckBox>(fieldName);
+               if (wid) ((QCheckBox*)wid)->setChecked(!value.isEmpty());
             }
             else if (classType == "QLineEdit")
             {
-                if (wid = test->findField<QLineEdit>(fieldName)) ((QLineEdit*)wid)->setText(value.isEmpty() ? tr("0") : value);
+                wid = test->findField<QLineEdit>(fieldName);
+                if (wid) ((QLineEdit*)wid)->setText(value.isEmpty() ? tr("0") : value);
             }
             /*else if (classType == "ComboBoxNoScroll")
             {
@@ -461,7 +463,8 @@ void MainWindow::applyToAllTests(QString& , QString& classType, QString& fieldNa
             }*/
             else if (classType == "QComboBox")
             {
-                if (wid = test->findField<QComboBox>(fieldName)) ((QComboBox*)wid)->setCurrentText(value);
+                wid = test->findField<QComboBox>(fieldName);
+                if (wid) ((QComboBox*)wid)->setCurrentText(value);
             }
         }
     }
@@ -525,7 +528,7 @@ void MainWindow::onMenuDevices(QPoint point)
 {
     QMenu menu;
     QAction *act = menu.addAction(tr("Добавить устройство"));
-    connect(act, SIGNAL(triggered()), this, SLOT(addNewDevice()));
+    connect(act, SIGNAL(triggered()), &deviceSelection, SLOT(show()));
 
     menu.exec(ui->labeDevicesTitle->mapToGlobal(point));
 }

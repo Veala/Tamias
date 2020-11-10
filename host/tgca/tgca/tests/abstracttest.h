@@ -20,6 +20,7 @@
 #include <QDrag>
 #include "../funclib.h"
 #include "../terasicdevice.h"
+#include "../switch411device.h"
 #include "../data_structs.h"
 #include "../animatedspinnericon.h"
 #include "../globalstate.h"
@@ -259,6 +260,7 @@ const QString testTypeAlien(QObject::tr("Команды с чужими адре
 const QString testTypeInvalid(QObject::tr("Неопределённые команды"));
 const QString testTypeLSCMes(QObject::tr("Тест передачи по НСК"));
 const QString testTypeSpelsAmerage(QObject::tr("Тест на функционирование"));
+const QString testTypeSwitch411Base(QObject::tr("Switch411: Base test"));
 
 
 namespace testLib {

@@ -4,6 +4,7 @@
 #include "spelsamperage.h"
 #include "lscmessagetest.h"
 #include "pausetest.h"
+#include "switch411basetest.h"
 //#include "../comboboxnoscroll.h"
 #include "../picts.h"
 
@@ -773,7 +774,7 @@ AbstractTest *testLib::createTest(QVBoxLayout *devices, QTextBrowser *pB, QTextB
     QStringList allTests;
     allTests << testTypeMemory << testTypeLoadSPI
              << testTypeLSCMes << testTypeSpelsAmerage
-             << testTypePause;
+             << testTypePause << testTypeSwitch411Base;
     if (su) {
         //allTests << testTypeNull;
     }
@@ -798,6 +799,8 @@ AbstractTest *testLib::createTest(QVBoxLayout *devices, QTextBrowser *pB, QTextB
         defFileStr = QObject::tr("../default/spelsamperage_test");
     } else if (testType == testTypePause) {
         defFileStr = QObject::tr("../default/pause_part");
+    } else if (testType == testTypeSwitch411Base) {
+        defFileStr = QObject::tr("../default/switch411_base_test");
     }
 
 //    if(!QFile::copy(defFileStr,newFileStr)) {
@@ -861,6 +864,10 @@ AbstractTest *testLib::loadTest(QString settingsFileStr, QVBoxLayout *devices, Q
         uiFileStr = QObject::tr("../default/settings_pause.ui");
         uiFileStr_stats = QObject::tr("../default/stats_pause.ui");
         test = new PauseTest(0);
+    } else if (testType == testTypeSwitch411Base) {
+        uiFileStr = QObject::tr("../default/settings_switch411_base_test.ui");
+        uiFileStr_stats = QObject::tr("../default/stats_switch411_base_test.ui");
+        test = new Switch411BaseTest(0);
     } else {
         qDebug() << "unknown test " << testType;  // << endl;
         return NULL;
